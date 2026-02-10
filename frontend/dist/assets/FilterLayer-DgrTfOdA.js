@@ -1,0 +1,1 @@
+import{_ as a,a as r,c as s,e as t}from"./index-DG2mO3mC.js";const c={},n={class:"page-container"};function o(l,e){return r(),s("div",n,[...e[0]||(e[0]=[t("h2",null,"信号分级层 (Filter Layer)",-1),t("p",null,"对采集的信息进行重要性分级：Level 1 (情绪级) / Level 2 (中期趋势) / Level 3 (结构级)",-1)])])}const d=a(c,[["render",o],["__scopeId","data-v-4b7611c4"]]);export{d as default};

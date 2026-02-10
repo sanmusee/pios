@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: pios-backend
+  
+  datasource:
+    url: jdbc:sqlite:${user.home}/.pios/pios.db
+    driver-class-name: org.sqlite.JDBC
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.sqlite.hibernate.dialect.SQLiteDialect
+        format_sql: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+logging:
+  level:
+    com.pios: DEBUG
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+jwt:
+  secret: ${JWT_SECRET:your-secret-key-here-change-in-production}
+  expiration: 86400000
+
+pios:
+  data-collection:
+    enabled: true
+    cron: "0 0 6 * * ?"
+  report:
+    generation-time: "07:00"
