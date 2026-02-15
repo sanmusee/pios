@@ -57,6 +57,9 @@
           <el-menu-item index="/macro-score-panel">
             <span>评分与相位判定</span>
           </el-menu-item>
+          <el-menu-item index="/global-asset-panel">
+            <span>全球定价与资产锚点</span>
+          </el-menu-item>
         </el-sub-menu>
       </el-menu>
     </el-aside>

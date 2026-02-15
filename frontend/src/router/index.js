@@ -60,6 +60,12 @@ const routes = [
         name: 'MacroScorePanel',
         component: () => import('@/views/macro/MacroScorePanel.vue'),
         meta: { title: '宏观评分与相位判定' }
+      },
+      {
+        path: 'global-asset-panel',
+        name: 'GlobalAssetPanel',
+        component: () => import('@/views/macro/GlobalAssetPanel.vue'),
+        meta: { title: '全球定价与资产锚点' }
       }
     ]
   }
