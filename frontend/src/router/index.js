@@ -54,6 +54,12 @@ const routes = [
         name: 'ForwardRiskPanel',
         component: () => import('@/views/macro/ForwardRiskPanel.vue'),
         meta: { title: '领先指标与风险偏好' }
+      },
+      {
+        path: 'macro-score-panel',
+        name: 'MacroScorePanel',
+        component: () => import('@/views/macro/MacroScorePanel.vue'),
+        meta: { title: '宏观评分与相位判定' }
       }
     ]
   }

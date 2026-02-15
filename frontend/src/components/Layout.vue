@@ -54,6 +54,9 @@
           <el-menu-item index="/forward-risk-panel">
             <span>领先指标与风险</span>
           </el-menu-item>
+          <el-menu-item index="/macro-score-panel">
+            <span>评分与相位判定</span>
+          </el-menu-item>
         </el-sub-menu>
       </el-menu>
     </el-aside>
