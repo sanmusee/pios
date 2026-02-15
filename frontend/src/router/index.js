@@ -48,6 +48,12 @@ const routes = [
         name: 'MacroDashboard',
         component: () => import('@/views/macro/MacroDashboard.vue'),
         meta: { title: '宏观经济链路监控' }
+      },
+      {
+        path: 'forward-risk-panel',
+        name: 'ForwardRiskPanel',
+        component: () => import('@/views/macro/ForwardRiskPanel.vue'),
+        meta: { title: '领先指标与风险偏好' }
       }
     ]
   }

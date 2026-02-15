@@ -43,10 +43,18 @@
           <span>日报中心</span>
         </el-menu-item>
 
-        <el-menu-item index="/macro-dashboard">
-          <el-icon><TrendCharts /></el-icon>
-          <span>宏观经济链路</span>
-        </el-menu-item>
+        <el-sub-menu index="/macro">
+          <template #title>
+            <el-icon><TrendCharts /></el-icon>
+            <span>宏观监控</span>
+          </template>
+          <el-menu-item index="/macro-dashboard">
+            <span>经济链路监控</span>
+          </el-menu-item>
+          <el-menu-item index="/forward-risk-panel">
+            <span>领先指标与风险</span>
+          </el-menu-item>
+        </el-sub-menu>
       </el-menu>
     </el-aside>
     
