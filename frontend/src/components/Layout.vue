@@ -42,6 +42,11 @@
           <el-icon><Document /></el-icon>
           <span>日报中心</span>
         </el-menu-item>
+
+        <el-menu-item index="/macro-dashboard">
+          <el-icon><TrendCharts /></el-icon>
+          <span>宏观经济链路</span>
+        </el-menu-item>
       </el-menu>
     </el-aside>
     

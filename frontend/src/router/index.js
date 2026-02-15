@@ -42,6 +42,12 @@ const routes = [
         name: 'ReportLayer',
         component: () => import('@/views/ReportLayer.vue'),
         meta: { title: '日报中心' }
+      },
+      {
+        path: 'macro-dashboard',
+        name: 'MacroDashboard',
+        component: () => import('@/views/macro/MacroDashboard.vue'),
+        meta: { title: '宏观经济链路监控' }
       }
     ]
   }
