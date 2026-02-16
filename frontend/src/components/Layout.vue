@@ -60,6 +60,15 @@
           <el-menu-item index="/global-asset-panel">
             <span>全球定价与资产锚点</span>
           </el-menu-item>
+          <el-menu-item index="/profit-cash-panel">
+            <span>盈利与现金流</span>
+          </el-menu-item>
+          <el-menu-item index="/policy-panel">
+            <span>财政与政策强度</span>
+          </el-menu-item>
+          <el-menu-item index="/household-panel">
+            <span>居民资产负债表</span>
+          </el-menu-item>
         </el-sub-menu>
       </el-menu>
     </el-aside>

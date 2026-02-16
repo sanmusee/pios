@@ -66,6 +66,24 @@ const routes = [
         name: 'GlobalAssetPanel',
         component: () => import('@/views/macro/GlobalAssetPanel.vue'),
         meta: { title: '全球定价与资产锚点' }
+      },
+      {
+        path: 'profit-cash-panel',
+        name: 'ProfitCashPanel',
+        component: () => import('@/views/macro/ProfitCashPanel.vue'),
+        meta: { title: '盈利与现金流' }
+      },
+      {
+        path: 'policy-panel',
+        name: 'PolicyPanel',
+        component: () => import('@/views/macro/PolicyPanel.vue'),
+        meta: { title: '财政与政策强度' }
+      },
+      {
+        path: 'household-panel',
+        name: 'HouseholdPanel',
+        component: () => import('@/views/macro/HouseholdPanel.vue'),
+        meta: { title: '居民资产负债表' }
       }
     ]
   }
