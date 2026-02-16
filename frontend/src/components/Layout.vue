@@ -69,6 +69,9 @@
           <el-menu-item index="/household-panel">
             <span>居民资产负债表</span>
           </el-menu-item>
+          <el-menu-item index="/sector-rotation-panel">
+            <span>行业景气度与风格轮动</span>
+          </el-menu-item>
         </el-sub-menu>
       </el-menu>
     </el-aside>

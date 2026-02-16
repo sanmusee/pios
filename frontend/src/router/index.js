@@ -84,6 +84,12 @@ const routes = [
         name: 'HouseholdPanel',
         component: () => import('@/views/macro/HouseholdPanel.vue'),
         meta: { title: '居民资产负债表' }
+      },
+      {
+        path: 'sector-rotation-panel',
+        name: 'SectorRotationPanel',
+        component: () => import('@/views/macro/SectorRotationPanel.vue'),
+        meta: { title: '行业景气度与风格轮动' }
       }
     ]
   }
