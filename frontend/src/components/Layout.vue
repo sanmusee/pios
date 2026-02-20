@@ -73,6 +73,22 @@
             <span>行业景气度与风格轮动</span>
           </el-menu-item>
         </el-sub-menu>
+
+        <el-sub-menu index="/structured">
+          <template #title>
+            <el-icon><Collection /></el-icon>
+            <span>结构化信息平台</span>
+          </template>
+          <el-menu-item index="/info-flow-console">
+            <span>信息流控制台</span>
+          </el-menu-item>
+          <el-menu-item index="/structural-variables">
+            <span>结构变量面板</span>
+          </el-menu-item>
+          <el-menu-item index="/strategic-observation-pool">
+            <span>战略观察池</span>
+          </el-menu-item>
+        </el-sub-menu>
       </el-menu>
     </el-aside>
     

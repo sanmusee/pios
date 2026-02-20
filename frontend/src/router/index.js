@@ -90,6 +90,24 @@ const routes = [
         name: 'SectorRotationPanel',
         component: () => import('@/views/macro/SectorRotationPanel.vue'),
         meta: { title: '行业景气度与风格轮动' }
+      },
+      {
+        path: 'info-flow-console',
+        name: 'InfoFlowConsole',
+        component: () => import('@/views/structured/InfoFlowConsole.vue'),
+        meta: { title: '信息流控制台' }
+      },
+      {
+        path: 'structural-variables',
+        name: 'StructuralVariables',
+        component: () => import('@/views/structured/StructuralVariables.vue'),
+        meta: { title: '结构变量面板' }
+      },
+      {
+        path: 'strategic-observation-pool',
+        name: 'StrategicObservationPool',
+        component: () => import('@/views/structured/StrategicObservationPool.vue'),
+        meta: { title: '战略观察池' }
       }
     ]
   }
