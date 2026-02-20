@@ -29,7 +29,7 @@ const chartOption = computed(() => ({
     lineStyle: { color: '#5470c6', width: 3 },
     itemStyle: { color: '#5470c6' },
     areaStyle: { color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{ offset: 0, color: 'rgba(84, 112, 198, 0.4)' }, { offset: 1, color: 'rgba(84, 112, 198, 0.05)' }] } },
-    markLine: { silent: true, data: [{ yAxis: 35, lineStyle: { color: '#fa8c16', type: 'dashed' }, label: { formatter: '历史均值35%', position: 'end' } }] }
+    markLine: { silent: true, data: [{ yAxis: 35, lineStyle: { color: '#fa8c16', type: 'dashed' }, label: { formatter: '均值35%', position: 'insideEndTop' } }] }
   }]
 }))
 </script>

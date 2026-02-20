@@ -46,6 +46,17 @@
       </el-col>
       <el-col :span="12">
         <ChartCard title="财政支出结构" subtitle="民生/基建/科技">
+          <template #header-actions>
+            <el-button
+              type="primary"
+              link
+              size="small"
+              :icon="ArrowRight"
+              @click="openFiscalDetail"
+            >
+              详情
+            </el-button>
+          </template>
           <FiscalExpenditureChart :data="fiscalExpenditureData" />
         </ChartCard>
       </el-col>
@@ -65,12 +76,13 @@
     </el-row>
 
     <PolicyGuideDialog ref="guideDialogRef" />
+    <FiscalExpenditureDetailDialog ref="fiscalDetailDialogRef" />
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
-import { InfoFilled } from '@element-plus/icons-vue'
+import { InfoFilled, ArrowRight } from '@element-plus/icons-vue'
 import KPICard from './components/KPICard.vue'
 import ChartCard from './components/ChartCard.vue'
 import SpecialBondChart from './components/SpecialBondChart.vue'
@@ -78,6 +90,7 @@ import FiscalExpenditureChart from './components/FiscalExpenditureChart.vue'
 import InfrastructureChart from './components/InfrastructureChart.vue'
 import GovtBondChart from './components/GovtBondChart.vue'
 import PolicyGuideDialog from './components/PolicyGuideDialog.vue'
+import FiscalExpenditureDetailDialog from './components/FiscalExpenditureDetailDialog.vue'
 
 const getProgressColor = (val) => {
   if (val >= 80) return '#52c41a'
@@ -117,8 +130,14 @@ const govtBondData = ref({
 })
 
 const guideDialogRef = ref(null)
+const fiscalDetailDialogRef = ref(null)
+
 const openGuide = () => {
   guideDialogRef.value?.open()
+}
+
+const openFiscalDetail = () => {
+  fiscalDetailDialogRef.value?.open()
 }
 </script>
 

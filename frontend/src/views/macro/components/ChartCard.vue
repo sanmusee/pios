@@ -3,10 +3,13 @@
     <template #header>
       <div class="card-header">
         <div class="title-section">
-          <span class="title">{{ title }}</span>
-          <span v-if="subtitle" class="subtitle">{{ subtitle }}</span>
+          <span v-if="title" class="subtitle-highlight">{{ title }}</span>
+          <span class="title-small">{{ subtitle }}</span>
         </div>
-        <el-tag v-if="tag" :type="tagType" size="small">{{ tag }}</el-tag>
+        <div class="header-actions">
+          <slot name="header-actions"></slot>
+          <el-tag v-if="tag" :type="tagType" size="small">{{ tag }}</el-tag>
+        </div>
       </div>
     </template>
     <div class="chart-content">
@@ -46,21 +49,27 @@ defineProps({
   align-items: center;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .title-section {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.title {
+.title-small {
+  font-size: 12px;
+  color: #909399;
+}
+
+.subtitle-highlight {
   font-size: 16px;
   font-weight: 600;
   color: #303133;
-}
-
-.subtitle {
-  font-size: 12px;
-  color: #909399;
 }
 
 .chart-content {

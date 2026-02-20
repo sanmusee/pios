@@ -2,17 +2,29 @@
   <div class="macro-dashboard">
     <div class="dashboard-header">
       <div class="header-content">
-        <div>
+        <div class="header-left">
           <h2>宏观经济链路监控看板 (Level 1)</h2>
           <p class="subtitle">通过四个关键模块的对比，判断当前处于周期的哪个位置</p>
         </div>
-        <el-button type="warning" :icon="QuestionFilled" @click="openGuide">
-          看图指南
-        </el-button>
+        <div class="header-right">
+          <div class="countdown-section">
+            <div class="countdown-label">
+              <el-icon><Clock /></el-icon>
+              <span>数据发布</span>
+            </div>
+            <div class="countdown-items">
+              <div v-for="item in upcomingReleases" :key="item.name" class="countdown-item">
+                <span class="item-name">{{ item.name }}</span>
+                <span class="item-days" :class="getCountdownClass(item.days)">{{ item.days }}天</span>
+              </div>
+            </div>
+          </div>
+          <el-button type="warning" :icon="QuestionFilled" @click="openGuide" size="small">
+            看图指南
+          </el-button>
+        </div>
       </div>
     </div>
-
-    <DataReleaseCountdown />
 
     <el-row :gutter="16" class="kpi-row">
       <el-col :span="6">
@@ -31,12 +43,34 @@
 
     <el-row :gutter="16" class="chart-row">
       <el-col :span="12">
-        <ChartCard title="源头 (Source) —— 货币闸门" subtitle="M1-M2 剪刀差 vs 沪深300">
+        <ChartCard title="M1-M2 剪刀差 vs 沪深300" subtitle="源头 (Source) —— 货币闸门">
+          <template #header-actions>
+            <el-button 
+              type="primary" 
+              link 
+              size="small" 
+              :icon="ArrowRight"
+              @click="openSourceDetail"
+            >
+              详情
+            </el-button>
+          </template>
           <SourceChart :data="sourceData" />
         </ChartCard>
       </el-col>
       <el-col :span="12">
-        <ChartCard title="传导 (Transmission) —— 信用扩张" subtitle="社融增量构成">
+        <ChartCard title="社融增量构成" subtitle="传导 (Transmission) —— 信用扩张">
+          <template #header-actions>
+            <el-button
+              type="primary"
+              link
+              size="small"
+              :icon="ArrowRight"
+              @click="openTransmissionDetail"
+            >
+              详情
+            </el-button>
+          </template>
           <TransmissionChart :data="transmissionData" />
         </ChartCard>
       </el-col>
@@ -44,32 +78,48 @@
 
     <el-row :gutter="16" class="chart-row">
       <el-col :span="12">
-        <ChartCard title="结果 (Outcome) —— 经济温度" subtitle="CPI/PPI 波动区间">
+        <ChartCard title="CPI/PPI 波动区间" subtitle="结果 (Outcome) —— 经济温度">
+          <template #header-actions>
+            <el-button 
+              type="primary" 
+              link 
+              size="small" 
+              :icon="ArrowRight"
+              @click="openOutcomeDetail"
+            >
+              详情
+            </el-button>
+          </template>
           <OutcomeChart :data="outcomeData" />
         </ChartCard>
       </el-col>
       <el-col :span="12">
-        <ChartCard title="反馈 (Feedback) —— 政策应对" subtitle="1年期与5年期 LPR 利率走势">
+        <ChartCard title="1年期与5年期 LPR 利率走势" subtitle="反馈 (Feedback) —— 政策应对">
           <FeedbackChart :data="feedbackData" />
         </ChartCard>
       </el-col>
     </el-row>
 
     <GuideDialog ref="guideDialogRef" />
+    <SourceDetailDialog ref="sourceDetailDialogRef" />
+    <OutcomeDetailDialog ref="outcomeDetailDialogRef" />
+    <TransmissionDetailDialog ref="transmissionDetailDialogRef" />
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { QuestionFilled } from '@element-plus/icons-vue'
+import { QuestionFilled, ArrowRight, Clock } from '@element-plus/icons-vue'
 import KPICard from './components/KPICard.vue'
 import ChartCard from './components/ChartCard.vue'
 import SourceChart from './components/SourceChart.vue'
 import TransmissionChart from './components/TransmissionChart.vue'
 import OutcomeChart from './components/OutcomeChart.vue'
 import FeedbackChart from './components/FeedbackChart.vue'
-import DataReleaseCountdown from './components/DataReleaseCountdown.vue'
 import GuideDialog from './components/GuideDialog.vue'
+import SourceDetailDialog from './components/SourceDetailDialog.vue'
+import OutcomeDetailDialog from './components/OutcomeDetailDialog.vue'
+import TransmissionDetailDialog from './components/TransmissionDetailDialog.vue'
 
 const m2Value = ref(10.1)
 const m2Change = ref(-0.2)
@@ -114,10 +164,39 @@ const feedbackData = ref({
   dr007: [2.15, 2.20, 2.10, 2.05, 2.12, 2.08, 1.95, 1.88, 1.92, 1.85, 1.80, 1.75]
 })
 
+// 数据发布倒计时逻辑
+const upcomingReleases = ref([
+  { name: 'CPI/PPI', days: 2 },
+  { name: '金融数据', days: 5 },
+  { name: 'PMI', days: 12 },
+  { name: 'LPR', days: 18 }
+])
+
+const getCountdownClass = (days) => {
+  if (days <= 3) return 'urgent'
+  if (days <= 7) return 'soon'
+  return 'normal'
+}
+
 const guideDialogRef = ref(null)
+const sourceDetailDialogRef = ref(null)
+const outcomeDetailDialogRef = ref(null)
+const transmissionDetailDialogRef = ref(null)
 
 const openGuide = () => {
   guideDialogRef.value?.open()
+}
+
+const openSourceDetail = () => {
+  sourceDetailDialogRef.value?.open()
+}
+
+const openOutcomeDetail = () => {
+  outcomeDetailDialogRef.value?.open()
+}
+
+const openTransmissionDetail = () => {
+  transmissionDetailDialogRef.value?.open()
 }
 </script>
 
@@ -138,6 +217,69 @@ const openGuide = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 倒计时区域 */
+.countdown-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.countdown-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+.countdown-items {
+  display: flex;
+  gap: 12px;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.item-name {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.item-days {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.item-days.urgent {
+  background: #f5576c;
+}
+
+.item-days.soon {
+  background: #fac858;
+  color: #333;
 }
 
 .dashboard-header h2 {
