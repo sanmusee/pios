@@ -3,8 +3,10 @@ spring:
     name: pios-backend
   
   datasource:
-    url: jdbc:sqlite:${user.home}/.pios/pios.db
-    driver-class-name: org.sqlite.JDBC
+    url: jdbc:mysql://localhost:3306/pios?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
   
   jpa:
     hibernate:
@@ -12,7 +14,7 @@ spring:
     show-sql: false
     properties:
       hibernate:
-        dialect: org.sqlite.hibernate.dialect.SQLiteDialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
 
 server:

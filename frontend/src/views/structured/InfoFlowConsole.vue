@@ -67,13 +67,15 @@
       <div class="article-list">
         <div class="list-header">
           <h3>变量识别结果列表</h3>
-          <el-input
-            v-model="searchQuery"
-            placeholder="搜索标题或变量..."
-            style="width: 300px"
-            :prefix-icon="Search"
-            clearable
-          />
+          <div class="header-actions">
+            <el-input
+              v-model="searchQuery"
+              placeholder="搜索标题或变量..."
+              style="width: 300px"
+              :prefix-icon="Search"
+              clearable
+            />
+          </div>
         </div>
 
         <el-table
@@ -252,11 +254,12 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { ElMessage } from 'element-plus'
 import { 
-  Document,
-  Check,
-  Close,
-  TrendCharts,
+  Document, 
+  Check, 
+  Close, 
+  TrendCharts, 
   Search,
   DataAnalysis,
   ChatDotRound,
@@ -573,6 +576,12 @@ const removeFromStrategicPool = () => {
   margin: 0;
   font-size: 18px;
   color: #303133;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 /* 表格样式 */

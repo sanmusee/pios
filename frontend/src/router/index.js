@@ -92,6 +92,12 @@ const routes = [
         meta: { title: '行业景气度与风格轮动' }
       },
       {
+        path: 'raw-news-list',
+        name: 'RawNewsList',
+        component: () => import('@/views/structured/RawNewsList.vue'),
+        meta: { title: '原始数据列表' }
+      },
+      {
         path: 'info-flow-console',
         name: 'InfoFlowConsole',
         component: () => import('@/views/structured/InfoFlowConsole.vue'),

@@ -1,0 +1,1 @@
+import{_ as o,a as r,c as t,e as a}from"./index-CzoF3bTe.js";const n={},s={class:"page-container"};function c(l,e){return r(),t("div",s,[...e[0]||(e[0]=[a("h2",null,"关联分析层 (Correlation Layer)",-1),a("p",null,"构建变量之间的因果链条，识别结构级关联",-1)])])}const d=o(n,[["render",c],["__scopeId","data-v-a0da3608"]]);export{d as default};

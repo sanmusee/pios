@@ -79,6 +79,9 @@
             <el-icon><Collection /></el-icon>
             <span>结构化信息平台</span>
           </template>
+          <el-menu-item index="/raw-news-list">
+            <span>原始数据列表</span>
+          </el-menu-item>
           <el-menu-item index="/info-flow-console">
             <span>信息流控制台</span>
           </el-menu-item>
