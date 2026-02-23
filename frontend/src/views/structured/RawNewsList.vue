@@ -152,17 +152,9 @@
           </template>
         </el-table-column>
 
-        <el-table-column label="发布时间" width="160">
-          <template #default="{ row }">
-            {{ formatDateTime(row.publishTime) }}
-          </template>
-        </el-table-column>
+        <el-table-column prop="publishTime" label="发布时间" width="160" />
 
-        <el-table-column label="采集时间" width="160">
-          <template #default="{ row }">
-            {{ formatDateTime(row.fetchTime) }}
-          </template>
-        </el-table-column>
+        <el-table-column prop="fetchTime" label="采集时间" width="160" />
 
         <el-table-column label="操作" width="120" fixed="right">
           <template #default="{ row }">
@@ -215,17 +207,17 @@
             </el-link>
           </el-descriptions-item>
           <el-descriptions-item label="发布时间">
-            {{ formatDateTime(selectedNews.publishTime) }}
+            {{ selectedNews.publishTime }}
           </el-descriptions-item>
           <el-descriptions-item label="采集时间">
-            {{ formatDateTime(selectedNews.fetchTime) }}
+            {{ selectedNews.fetchTime }}
           </el-descriptions-item>
         </el-descriptions>
 
         <div class="detail-content-text">
           <h4>正文内容</h4>
           <div class="content-box">
-            {{ selectedNews.content }}
+            {{ stripHtml(selectedNews.content) }}
           </div>
         </div>
       </div>
@@ -431,6 +423,12 @@ const deleteNews = async (row) => {
       ElMessage.error('删除失败：' + error.message)
     }
   }
+}
+
+// 去除HTML标签
+const stripHtml = (html) => {
+  if (!html) return ''
+  return html.replace(/<[^>]*>/g, '')
 }
 
 // 采集状态

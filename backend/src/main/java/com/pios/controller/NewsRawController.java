@@ -1,7 +1,10 @@
 package com.pios.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.pios.common.result.Result;
+import com.pios.dto.NewsRawDTO;
 import com.pios.entity.NewsRaw;
+import com.pios.mapper.NewsRawMapper;
 import com.pios.service.NewsRawService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Tag(name = "原始新闻管理")
 @RestController
@@ -20,11 +24,18 @@ import java.util.List;
 public class NewsRawController {
 
     private final NewsRawService newsRawService;
+    private final NewsRawMapper newsRawMapper;
 
     @Operation(summary = "获取所有新闻")
     @GetMapping
-    public Result<List<NewsRaw>> list() {
-        return Result.success(newsRawService.findAll());
+    public Result<List<NewsRawDTO>> list() {
+        QueryWrapper<NewsRaw> wrapper = new QueryWrapper<>();
+        wrapper.orderByDesc("publish_time");
+        List<NewsRaw> list = newsRawMapper.selectList(wrapper);
+        List<NewsRawDTO> dtoList = list.stream()
+                .map(NewsRawDTO::fromEntity)
+                .collect(Collectors.toList());
+        return Result.success(dtoList);
     }
 
     @Operation(summary = "根据ID获取新闻")

@@ -3,6 +3,7 @@ package com.pios.entity;
 import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * 原始新闻信息表
@@ -60,12 +61,12 @@ public class NewsRaw {
      * 采集时间
      */
     @Column(name = "fetch_time", nullable = false)
-    private LocalDateTime fetchTime;
+    private Date fetchTime;
     
     @PrePersist
     protected void onCreate() {
         if (fetchTime == null) {
-            fetchTime = LocalDateTime.now();
+            fetchTime = new Date();
         }
     }
 }

@@ -8,7 +8,9 @@ import java.util.Optional;
 public interface NewsRawService {
     
     NewsRaw save(NewsRaw newsRaw);
-    
+
+    int saveBatch(List<NewsRaw> newsRawList);
+
     Optional<NewsRaw> findById(Long id);
     
     Optional<NewsRaw> findByUrl(String url);

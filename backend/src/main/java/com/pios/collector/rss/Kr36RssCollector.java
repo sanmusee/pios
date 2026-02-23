@@ -40,23 +40,23 @@ public class Kr36RssCollector implements RssCollector {
     @Override
     public List<NewsRaw> collect() {
         List<NewsRaw> newsList = new ArrayList<>();
-        
+
         try {
             URL feedUrl = new URL(RSS_URL);
             SyndFeedInput input = new SyndFeedInput();
             SyndFeed feed = input.build(new XmlReader(feedUrl));
-            
+
             log.info("开始从 {} 采集RSS数据，共 {} 条", SOURCE_NAME, feed.getEntries().size());
-            
+
             for (SyndEntry entry : feed.getEntries()) {
                 try {
                     String url = entry.getLink();
-                    
+
                     if (newsRawService.existsByUrl(url)) {
                         log.debug("URL已存在，跳过: {}", url);
                         continue;
                     }
-                    
+
                     NewsRaw news = new NewsRaw();
                     news.setTitle(entry.getTitle());
                     news.setContent(entry.getDescription() != null ? entry.getDescription().getValue() : "");
@@ -64,23 +64,26 @@ public class Kr36RssCollector implements RssCollector {
                     news.setUrl(url);
                     news.setCategory(detectCategory(entry.getTitle(), entry.getCategories()));
                     news.setPublishTime(convertToLocalDateTime(entry.getPublishedDate()));
-                    
-                    newsRawService.save(news);
+                    news.setFetchTime(new Date());
+
                     newsList.add(news);
-                    
-                    log.debug("成功采集新闻: {}", news.getTitle());
-                    
+
                 } catch (Exception e) {
                     log.error("处理单条新闻失败: {}", entry.getTitle(), e);
                 }
             }
-            
-            log.info("从 {} 采集完成，新增 {} 条新闻", SOURCE_NAME, newsList.size());
-            
+
+            if (!newsList.isEmpty()) {
+                int savedCount = newsRawService.saveBatch(newsList);
+                log.info("从 {} 采集完成，新增 {} 条新闻", SOURCE_NAME, savedCount);
+            } else {
+                log.info("从 {} 采集完成，没有新数据", SOURCE_NAME);
+            }
+
         } catch (Exception e) {
             log.error("从 {} 采集RSS数据失败", SOURCE_NAME, e);
         }
-        
+
         return newsList;
     }
     

@@ -1,13 +1,13 @@
 spring:
   application:
     name: pios-backend
-  
+
   datasource:
-    url: jdbc:mysql://localhost:3306/pios?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/pios?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull
     username: root
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
-  
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -16,6 +16,10 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.pios.entity
 
 server:
   port: 8080
@@ -39,3 +43,7 @@ pios:
     cron: "0 0 6 * * ?"
   report:
     generation-time: "07:00"
+  llm:
+    kimi:
+      api-key: ${KIMI_API_KEY:}
+      model: kimi-k2.5
