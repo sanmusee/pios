@@ -1,10 +1,14 @@
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/python/PythonExecutorService.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/StockFinancialRaw.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/repository/InfoSignalRepository.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/impl/InfoSignalServiceImpl.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/NewsStructuralAnalysisService.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/IndustryFinancialSummary.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/dto/NewsRawDTO.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/StockScoreMonthly.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/llm/client/LlmClient.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/llm/prompt/PromptService.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/StockBasic.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/repository/DataSourceRepository.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/llm/prompt/manager/PromptManager.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/NewsRaw.java
@@ -17,6 +21,7 @@
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/common/result/Result.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/datasource/DataCollectionManager.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/controller/NewsRawController.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/IndustryScoreMonthly.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/llm/prompt/template/AbstractPromptTemplate.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/collector/rss/Kr36RssCollector.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/common/exception/BusinessException.java
@@ -26,9 +31,11 @@
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/llm/prompt/template/PromptTemplate.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/config/WebConfig.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/DataSource.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/Industry.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/InfoSignalService.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/collector/rss/RssCollector.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/controller/InfoSignalController.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/MacroData.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/impl/NewsRawServiceImpl.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/CorrelationChain.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/NewsStructuralAnalysis.java
@@ -40,8 +47,10 @@
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/repository/InferenceResultRepository.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/controller/RssCollectorController.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/mapper/MacroIndicatorMapper.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/TradeSignal.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/macro/MacroIndicator.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/datasource/PolicyTechCollector.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/StockPriceDaily.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/llm/client/kimi/KimiChatRequest.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/datasource/CapitalMarketCollector.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/impl/DataSourceServiceImpl.java

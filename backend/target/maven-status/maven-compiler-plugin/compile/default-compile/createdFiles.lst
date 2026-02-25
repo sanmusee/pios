@@ -1,12 +1,14 @@
 com/pios/repository/CorrelationChainRepository.class
 com/pios/service/impl/InfoSignalServiceImpl.class
 com/pios/entity/NewsRaw.class
+com/pios/entity/stock/StockPriceDaily.class
 com/pios/PiosApplication.class
 com/pios/repository/NewsStructuralAnalysisRepository.class
 com/pios/llm/prompt/template/NewsAnalysisPromptTemplate.class
 com/pios/llm/prompt/template/PromptContext.class
 com/pios/mapper/MacroDataMapper.class
 com/pios/entity/InferenceResult.class
+com/pios/entity/stock/StockFinancialRaw.class
 com/pios/controller/NewsRawController.class
 com/pios/repository/DataSourceRepository.class
 com/pios/llm/agent/StructuralVariableAgent.class
@@ -14,13 +16,16 @@ com/pios/config/WebConfig.class
 com/pios/collector/rss/Kr36RssCollector.class
 com/pios/entity/CorrelationChain.class
 com/pios/llm/client/LlmClient.class
+com/pios/entity/stock/Industry.class
 com/pios/controller/RssCollectorController.class
 com/pios/llm/client/kimi/KimiChatResponse$Message.class
 com/pios/entity/NewsStructuralAnalysis.class
 com/pios/llm/prompt/template/PromptTemplate.class
 com/pios/llm/client/kimi/KimiChatResponse.class
+com/pios/entity/stock/TradeSignal.class
 com/pios/llm/prompt/template/VariableExtractionPromptTemplate.class
 com/pios/repository/InfoSignalRepository.class
+com/pios/entity/stock/StockBasic.class
 com/pios/service/datasource/CapitalMarketCollector.class
 com/pios/llm/prompt/template/StructuralVariableRecognitionPromptTemplate.class
 com/pios/entity/macro/MacroData.class
@@ -32,8 +37,10 @@ com/pios/llm/prompt/template/PromptContext$PromptContextBuilder.class
 com/pios/mapper/NewsRawMapper.class
 com/pios/repository/DailyReportRepository.class
 com/pios/service/impl/NewsRawServiceImpl.class
+com/pios/entity/stock/IndustryScoreMonthly.class
 com/pios/service/datasource/DataCollectionManager.class
 com/pios/llm/client/kimi/KimiChatRequest$Message.class
+com/pios/entity/stock/IndustryFinancialSummary.class
 com/pios/service/InfoSignalService.class
 com/pios/llm/agent/model/StructuralVariableResult$DimensionResult.class
 com/pios/common/result/Result.class
@@ -48,6 +55,7 @@ com/pios/common/exception/GlobalExceptionHandler.class
 com/pios/service/datasource/MacroDataCollector.class
 com/pios/llm/client/kimi/KimiChatResponse$Choice.class
 com/pios/service/datasource/DataSourceCollector.class
+com/pios/entity/stock/StockScoreMonthly.class
 com/pios/config/SecurityConfig.class
 com/pios/service/NewsStructuralAnalysisService.class
 com/pios/llm/prompt/template/AbstractPromptTemplate.class
@@ -64,3 +72,4 @@ com/pios/collector/rss/RssCollector.class
 com/pios/controller/SystemController.class
 com/pios/service/python/PythonExecutorService.class
 com/pios/llm/prompt/manager/PromptManager.class
+com/pios/entity/stock/MacroData.class
