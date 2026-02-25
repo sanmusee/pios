@@ -1,61 +1,53 @@
 package com.pios.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import javax.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Data
-@Entity
-@Table(name = "info_signal")
+@TableName("info_signal")
 public class InfoSignal {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    
-    @Column(nullable = false, length = 500)
+
+    @TableField("title")
     private String title;
-    
-    @Column(columnDefinition = "TEXT")
+
+    @TableField("content")
     private String content;
-    
-    @Column(length = 100)
+
+    @TableField("source")
     private String source;
-    
-    @Column(length = 50)
+
+    @TableField("category")
     private String category;
-    
+
+    @TableField("level")
     private Integer level;
-    
-    @Column(length = 500)
+
+    @TableField("tags")
     private String tags;
-    
-    @Column(name = "signal_time")
+
+    @TableField("signal_time")
     private LocalDateTime signalTime;
 
-    @Column(name = "original_summary", columnDefinition = "TEXT")
+    @TableField("original_summary")
     private String originalSummary;
 
-    @Column(name = "original_content", columnDefinition = "TEXT")
+    @TableField("original_content")
     private String originalContent;
 
-    @Column(name = "original_url", length = 1000)
+    @TableField("original_url")
     private String originalUrl;
 
-    @Column(name = "created_at")
+    @TableField("created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at")
+    @TableField("updated_at")
     private LocalDateTime updatedAt;
-    
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
-    
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }

@@ -1,72 +1,39 @@
 package com.pios.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import javax.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.Date;
 
-/**
- * 原始新闻信息表
- * 对应数据库表: news_raw
- */
 @Data
-@Entity
-@Table(name = "news_raw")
+@TableName("news_raw")
 public class NewsRaw {
-    
-    /**
-     * 主键ID
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    
-    /**
-     * 文章标题
-     */
-    @Column(nullable = false, length = 500)
+
+    @TableField("title")
     private String title;
-    
-    /**
-     * 文章正文（纯文本）
-     */
-    @Column(nullable = false, columnDefinition = "LONGTEXT")
+
+    @TableField("content")
     private String content;
-    
-    /**
-     * 来源，如36kr、gov、pbc
-     */
-    @Column(nullable = false, length = 100)
+
+    @TableField("source")
     private String source;
-    
-    /**
-     * 原始发布时间
-     */
-    @Column(name = "publish_time", nullable = false)
+
+    @TableField("publish_time")
     private LocalDateTime publishTime;
-    
-    /**
-     * 分类，如宏观/科技/产业
-     */
-    @Column(length = 100)
+
+    @TableField("category")
     private String category;
-    
-    /**
-     * 原文链接
-     */
-    @Column(nullable = false, length = 512, unique = true)
+
+    @TableField("url")
     private String url;
-    
-    /**
-     * 采集时间
-     */
-    @Column(name = "fetch_time", nullable = false)
+
+    @TableField("fetch_time")
     private Date fetchTime;
-    
-    @PrePersist
-    protected void onCreate() {
-        if (fetchTime == null) {
-            fetchTime = new Date();
-        }
-    }
 }

@@ -1,163 +1,95 @@
 package com.pios.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-/**
- * 新闻结构变量分析结果
- * 记录每篇新闻的结构变量识别结果
- */
 @Data
-@Entity
-@Table(name = "news_structural_analysis")
+@TableName("news_structural_analysis")
 public class NewsStructuralAnalysis {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    
-    /**
-     * 关联的新闻ID
-     */
-    @Column(name = "news_raw_id", nullable = false)
+
+    @TableField("news_raw_id")
     private Long newsRawId;
-    
-    /**
-     * 关联的新闻（可选）
-     */
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "news_raw_id", insertable = false, updatable = false)
-    private NewsRaw newsRaw;
-    
-    // ========== 结构性变量识别结果（8个维度）==========
-    
-    /**
-     * 制度或规则改变
-     */
-    @Column(name = "institutional_rule_change", length = 10)
+
+    @TableField("institutional_rule_change")
     private String institutionalRuleChange;
-    
-    @Column(name = "institutional_rule_evidence", columnDefinition = "TEXT")
+
+    @TableField("institutional_rule_evidence")
     private String institutionalRuleEvidence;
-    
-    /**
-     * 监管或政策方向改变
-     */
-    @Column(name = "policy_direction_shift", length = 10)
+
+    @TableField("policy_direction_shift")
     private String policyDirectionShift;
-    
-    @Column(name = "policy_direction_evidence", columnDefinition = "TEXT")
+
+    @TableField("policy_direction_evidence")
     private String policyDirectionEvidence;
-    
-    /**
-     * 资本流向改变
-     */
-    @Column(name = "capital_flow_change", length = 10)
+
+    @TableField("capital_flow_change")
     private String capitalFlowChange;
-    
-    @Column(name = "capital_flow_evidence", columnDefinition = "TEXT")
+
+    @TableField("capital_flow_evidence")
     private String capitalFlowEvidence;
-    
-    /**
-     * 产业成本结构改变
-     */
-    @Column(name = "cost_structure_change", length = 10)
+
+    @TableField("cost_structure_change")
     private String costStructureChange;
-    
-    @Column(name = "cost_structure_evidence", columnDefinition = "TEXT")
+
+    @TableField("cost_structure_evidence")
     private String costStructureEvidence;
-    
-    /**
-     * 供需关系改变
-     */
-    @Column(name = "supply_demand_change", length = 10)
+
+    @TableField("supply_demand_change")
     private String supplyDemandChange;
-    
-    @Column(name = "supply_demand_evidence", columnDefinition = "TEXT")
+
+    @TableField("supply_demand_evidence")
     private String supplyDemandEvidence;
-    
-    /**
-     * 技术范式改变
-     */
-    @Column(name = "technology_paradigm_shift", length = 10)
+
+    @TableField("technology_paradigm_shift")
     private String technologyParadigmShift;
-    
-    @Column(name = "technology_paradigm_evidence", columnDefinition = "TEXT")
+
+    @TableField("technology_paradigm_evidence")
     private String technologyParadigmEvidence;
-    
-    /**
-     * 行为预期可能发生群体级变化
-     */
-    @Column(name = "behavior_expectation_shift", length = 10)
+
+    @TableField("behavior_expectation_shift")
     private String behaviorExpectationShift;
-    
-    @Column(name = "behavior_expectation_evidence", columnDefinition = "TEXT")
+
+    @TableField("behavior_expectation_evidence")
     private String behaviorExpectationEvidence;
-    
-    /**
-     * 影响可能持续超过一年
-     */
-    @Column(name = "long_term_impact_over_1y", length = 10)
+
+    @TableField("long_term_impact_over_1y")
     private String longTermImpactOver1y;
-    
-    @Column(name = "long_term_impact_evidence", columnDefinition = "TEXT")
+
+    @TableField("long_term_impact_evidence")
     private String longTermImpactEvidence;
-    
-    // ========== 分析元数据 ==========
-    
-    /**
-     * 是否存在任何结构性变量变化
-     */
-    @Column(name = "has_structural_change")
+
+    @TableField("has_structural_change")
     private Boolean hasStructuralChange;
-    
-    /**
-     * 变化维度数量（Yes 的数量）
-     */
-    @Column(name = "change_dimension_count")
+
+    @TableField("change_dimension_count")
     private Integer changeDimensionCount;
-    
-    /**
-     * 使用的LLM供应商
-     */
-    @Column(name = "llm_provider", length = 50)
+
+    @TableField("llm_provider")
     private String llmProvider;
-    
-    /**
-     * 分析状态：pending/processing/completed/failed
-     */
-    @Column(name = "analysis_status", length = 20)
+
+    @TableField("analysis_status")
     private String analysisStatus;
-    
-    /**
-     * 分析时间
-     */
-    @Column(name = "analysis_time")
+
+    @TableField("analysis_time")
     private LocalDateTime analysisTime;
-    
-    /**
-     * 错误信息（如果分析失败）
-     */
-    @Column(name = "error_message", columnDefinition = "TEXT")
+
+    @TableField("error_message")
     private String errorMessage;
-    
-    /**
-     * 原始LLM响应（用于调试）
-     */
-    @Column(name = "raw_llm_response", columnDefinition = "LONGTEXT")
+
+    @TableField("raw_llm_response")
     private String rawLlmResponse;
-    
-    // ========== 时间戳 ==========
-    
-    @CreationTimestamp
-    @Column(name = "created_at", updatable = false)
+
+    @TableField("created_at")
     private LocalDateTime createdAt;
-    
-    @UpdateTimestamp
-    @Column(name = "updated_at")
+
+    @TableField("updated_at")
     private LocalDateTime updatedAt;
 }

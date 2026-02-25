@@ -1,59 +1,50 @@
 package com.pios.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import javax.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Data
-@Entity
-@Table(name = "daily_report")
+@TableName("daily_report")
 public class DailyReport {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    
-    @Column(name = "report_date", nullable = false, length = 10, unique = true)
+
+    @TableField("report_date")
     private String reportDate;
-    
-    @Column(length = 200)
+
+    @TableField("title")
     private String title;
-    
-    @Column(name = "key_variable_changes", columnDefinition = "TEXT")
+
+    @TableField("key_variable_changes")
     private String keyVariableChanges;
-    
-    @Column(name = "historical_comparison", columnDefinition = "TEXT")
+
+    @TableField("historical_comparison")
     private String historicalComparison;
-    
-    @Column(name = "trend_inflection", columnDefinition = "TEXT")
+
+    @TableField("trend_inflection")
     private String trendInflection;
-    
-    @Column(name = "asset_impact_matrix", columnDefinition = "TEXT")
+
+    @TableField("asset_impact_matrix")
     private String assetImpactMatrix;
-    
-    @Column(name = "risk_warnings", columnDefinition = "TEXT")
+
+    @TableField("risk_warnings")
     private String riskWarnings;
-    
-    @Column(length = 800)
+
+    @TableField("summary")
     private String summary;
-    
-    @Column(name = "word_count")
+
+    @TableField("word_count")
     private Integer wordCount;
-    
-    @Column(name = "created_at")
+
+    @TableField("created_at")
     private LocalDateTime createdAt;
-    
-    @Column(name = "updated_at")
+
+    @TableField("updated_at")
     private LocalDateTime updatedAt;
-    
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
-    
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }
