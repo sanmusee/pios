@@ -1,0 +1,31 @@
+spring:
+  config:
+    activate:
+      on-profile: macro
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/pios_macro?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ""
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+python:
+  module:
+    path: python
+  executable: python3
+
+logging:
+  level:
+    com.pios: DEBUG
+    com.baomidou.mybatisplus: DEBUG

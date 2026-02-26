@@ -1,47 +1,38 @@
 package com.pios.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import javax.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Data
-@Entity
-@Table(name = "data_source")
+@TableName("data_source")
 public class DataSource {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    
-    @Column(nullable = false, length = 100)
+
+    @TableField("name")
     private String name;
-    
-    @Column(length = 50)
+
+    @TableField("type")
     private String type;
-    
-    @Column(columnDefinition = "TEXT")
+
+    @TableField("config")
     private String config;
-    
-    @Column(length = 20)
+
+    @TableField("status")
     private String status;
-    
-    @Column(name = "last_collect_time")
+
+    @TableField("last_collect_time")
     private LocalDateTime lastCollectTime;
-    
-    @Column(name = "created_at")
+
+    @TableField("created_at")
     private LocalDateTime createdAt;
-    
-    @Column(name = "updated_at")
+
+    @TableField("updated_at")
     private LocalDateTime updatedAt;
-    
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
-    
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }

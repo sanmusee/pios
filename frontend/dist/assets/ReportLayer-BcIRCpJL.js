@@ -1,0 +1,1 @@
+import{_ as a,a as o,c as r,e as t}from"./index-CzoF3bTe.js";const c={},s={class:"page-container"};function n(_,e){return o(),r("div",s,[...e[0]||(e[0]=[t("h2",null,"汇报层 (Report Layer)",-1),t("p",null,"生成每日结构变化简报，字数 ≤ 800 字",-1)])])}const l=a(c,[["render",n],["__scopeId","data-v-cce895de"]]);export{l as default};

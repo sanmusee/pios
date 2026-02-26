@@ -42,6 +42,72 @@
           <el-icon><Document /></el-icon>
           <span>日报中心</span>
         </el-menu-item>
+
+        <el-sub-menu index="/macro">
+          <template #title>
+            <el-icon><TrendCharts /></el-icon>
+            <span>宏观监控</span>
+          </template>
+          <el-menu-item index="/macro-dashboard">
+            <span>经济链路监控</span>
+          </el-menu-item>
+          <el-menu-item index="/forward-risk-panel">
+            <span>领先指标与风险</span>
+          </el-menu-item>
+          <el-menu-item index="/macro-score-panel">
+            <span>评分与相位判定</span>
+          </el-menu-item>
+          <el-menu-item index="/global-asset-panel">
+            <span>全球定价与资产锚点</span>
+          </el-menu-item>
+          <el-menu-item index="/profit-cash-panel">
+            <span>盈利与现金流</span>
+          </el-menu-item>
+          <el-menu-item index="/policy-panel">
+            <span>财政与政策强度</span>
+          </el-menu-item>
+          <el-menu-item index="/household-panel">
+            <span>居民资产负债表</span>
+          </el-menu-item>
+          <el-menu-item index="/sector-rotation-panel">
+            <span>行业景气度与风格轮动</span>
+          </el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="/structured">
+          <template #title>
+            <el-icon><Collection /></el-icon>
+            <span>结构化信息平台</span>
+          </template>
+          <el-menu-item index="/raw-news-list">
+            <span>原始数据列表</span>
+          </el-menu-item>
+          <el-menu-item index="/info-flow-console">
+            <span>信息流控制台</span>
+          </el-menu-item>
+          <el-menu-item index="/structural-variables">
+            <span>结构变量面板</span>
+          </el-menu-item>
+          <el-menu-item index="/strategic-observation-pool">
+            <span>战略观察池</span>
+          </el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="/stock">
+          <template #title>
+            <el-icon><TrendCharts /></el-icon>
+            <span>量化投资平台</span>
+          </template>
+          <el-menu-item index="/stock-dashboard">
+            <span>量化仪表盘</span>
+          </el-menu-item>
+          <el-menu-item index="/stock-analysis">
+            <span>股票分析</span>
+          </el-menu-item>
+          <el-menu-item index="/stock-screener">
+            <span>智能选股器</span>
+          </el-menu-item>
+        </el-sub-menu>
       </el-menu>
     </el-aside>
     

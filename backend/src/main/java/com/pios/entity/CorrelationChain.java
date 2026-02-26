@@ -1,55 +1,47 @@
 package com.pios.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import javax.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Data
-@Entity
-@Table(name = "correlation_chain")
+@TableName("correlation_chain")
 public class CorrelationChain {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    
-    @Column(nullable = false, length = 200)
+
+    @TableField("name")
     private String name;
-    
-    @Column(columnDefinition = "TEXT")
+
+    @TableField("description")
     private String description;
-    
-    @Column(name = "source_signal_id")
+
+    @TableField("source_signal_id")
     private Long sourceSignalId;
-    
-    @Column(name = "related_variables", columnDefinition = "TEXT")
+
+    @TableField("related_variables")
     private String relatedVariables;
-    
-    @Column(name = "causal_logic", columnDefinition = "TEXT")
+
+    @TableField("causal_logic")
     private String causalLogic;
-    
-    @Column(name = "historical_comparison", columnDefinition = "TEXT")
+
+    @TableField("historical_comparison")
     private String historicalComparison;
-    
-    @Column(name = "cycle_phase", length = 100)
+
+    @TableField("cycle_phase")
     private String cyclePhase;
-    
+
+    @TableField("status")
     private Integer status;
-    
-    @Column(name = "created_at")
+
+    @TableField("created_at")
     private LocalDateTime createdAt;
-    
-    @Column(name = "updated_at")
+
+    @TableField("updated_at")
     private LocalDateTime updatedAt;
-    
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
-    
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }

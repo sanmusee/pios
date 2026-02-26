@@ -1,56 +1,47 @@
 package com.pios.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import javax.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Data
-@Entity
-@Table(name = "inference_result")
+@TableName("inference_result")
 public class InferenceResult {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    
-    @Column(name = "correlation_chain_id")
+
+    @TableField("correlation_chain_id")
     private Long correlationChainId;
-    
-    @Column(columnDefinition = "TEXT")
+
+    @TableField("meaning")
     private String meaning;
-    
-    @Column(name = "chain_effects", columnDefinition = "TEXT")
+
+    @TableField("chain_effects")
     private String chainEffects;
-    
-    @Column(columnDefinition = "TEXT")
+
+    @TableField("beneficiaries")
     private String beneficiaries;
-    
-    @Column(columnDefinition = "TEXT")
+
+    @TableField("losers")
     private String losers;
-    
-    @Column(name = "time_scale", length = 20)
+
+    @TableField("time_scale")
     private String timeScale;
-    
-    @Column(name = "confidence_level", length = 20)
+
+    @TableField("confidence_level")
     private String confidenceLevel;
-    
-    @Column(name = "inference_date")
+
+    @TableField("inference_date")
     private LocalDateTime inferenceDate;
-    
-    @Column(name = "created_at")
+
+    @TableField("created_at")
     private LocalDateTime createdAt;
-    
-    @Column(name = "updated_at")
+
+    @TableField("updated_at")
     private LocalDateTime updatedAt;
-    
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
-    
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }

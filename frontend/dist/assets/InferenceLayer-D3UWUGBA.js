@@ -1,1 +1,0 @@
-import{_ as a,a as r,c,e as n}from"./index-DG2mO3mC.js";const s={},t={class:"page-container"};function o(_,e){return r(),c("div",t,[...e[0]||(e[0]=[n("h2",null,"推演层 (Inference Layer)",-1),n("p",null,"基于当前信息进行三层推演：意味着什么 → 连锁影响 → 受益/受损分析",-1)])])}const d=a(s,[["render",o],["__scopeId","data-v-545e306e"]]);export{d as default};
