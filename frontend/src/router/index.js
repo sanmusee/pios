@@ -114,6 +114,24 @@ const routes = [
         name: 'StrategicObservationPool',
         component: () => import('@/views/structured/StrategicObservationPool.vue'),
         meta: { title: '战略观察池' }
+      },
+      {
+        path: 'stock-dashboard',
+        name: 'StockDashboard',
+        component: () => import('@/views/stock/StockDashboard.vue'),
+        meta: { title: '量化仪表盘' }
+      },
+      {
+        path: 'stock-analysis',
+        name: 'StockAnalysis',
+        component: () => import('@/views/stock/StockAnalysis.vue'),
+        meta: { title: '股票分析' }
+      },
+      {
+        path: 'stock-screener',
+        name: 'StockScreener',
+        component: () => import('@/views/stock/StockScreener.vue'),
+        meta: { title: '智能选股器' }
       }
     ]
   }

@@ -12,6 +12,7 @@
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/repository/DataSourceRepository.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/llm/prompt/manager/PromptManager.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/NewsRaw.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/stock/TradeSignalService.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/repository/CorrelationChainRepository.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/llm/prompt/template/VariableExtractionPromptTemplate.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/DataSourceService.java
@@ -25,6 +26,7 @@
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/llm/prompt/template/AbstractPromptTemplate.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/collector/rss/Kr36RssCollector.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/common/exception/BusinessException.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/stock/MacroService.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/repository/NewsStructuralAnalysisRepository.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/DailyReport.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/InferenceResult.java
@@ -48,6 +50,7 @@
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/controller/RssCollectorController.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/mapper/MacroIndicatorMapper.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/TradeSignal.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/stock/StockService.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/macro/MacroIndicator.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/datasource/PolicyTechCollector.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/stock/StockPriceDaily.java
@@ -58,8 +61,12 @@
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/controller/SystemController.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/PiosApplication.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/repository/DailyReportRepository.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/controller/stock/StockController.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/datasource/DataSourceCollector.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/stock/IndustryService.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/controller/stock/MacroSignalController.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/entity/macro/MacroData.java
+/Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/controller/stock/IndustryController.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/service/NewsRawService.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/llm/agent/StructuralVariableAgent.java
 /Users/weideng/Projects/pri/pios/backend/src/main/java/com/pios/mapper/NewsRawMapper.java

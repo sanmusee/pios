@@ -92,6 +92,22 @@
             <span>战略观察池</span>
           </el-menu-item>
         </el-sub-menu>
+
+        <el-sub-menu index="/stock">
+          <template #title>
+            <el-icon><TrendCharts /></el-icon>
+            <span>量化投资平台</span>
+          </template>
+          <el-menu-item index="/stock-dashboard">
+            <span>量化仪表盘</span>
+          </el-menu-item>
+          <el-menu-item index="/stock-analysis">
+            <span>股票分析</span>
+          </el-menu-item>
+          <el-menu-item index="/stock-screener">
+            <span>智能选股器</span>
+          </el-menu-item>
+        </el-sub-menu>
       </el-menu>
     </el-aside>
     

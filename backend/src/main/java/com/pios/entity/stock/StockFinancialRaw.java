@@ -7,8 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @TableName("stock_financial_raw")
@@ -21,7 +20,7 @@ public class StockFinancialRaw {
     private String code;
 
     @TableField("report_date")
-    private LocalDate reportDate;
+    private Date reportDate;
 
     @TableField("revenue")
     private BigDecimal revenue;
@@ -48,5 +47,5 @@ public class StockFinancialRaw {
     private BigDecimal yoyProfit;
 
     @TableField("created_at")
-    private LocalDateTime createdAt;
+    private Date createdAt;
 }

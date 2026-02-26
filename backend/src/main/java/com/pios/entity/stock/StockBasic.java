@@ -6,8 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @TableName("stock_basic")
@@ -26,7 +25,7 @@ public class StockBasic {
     private Integer industryId;
 
     @TableField("list_date")
-    private LocalDate listDate;
+    private Date listDate;
 
     @TableField("is_st")
     private Integer isSt;
@@ -35,8 +34,8 @@ public class StockBasic {
     private String status;
 
     @TableField("created_at")
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
     @TableField("updated_at")
-    private LocalDateTime updatedAt;
+    private Date updatedAt;
 }
